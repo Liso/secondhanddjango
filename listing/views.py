@@ -36,5 +36,5 @@ class ListItems(APIView):
         b64 = base64.encodestring('%s:' % private_key).replace('\n', '')
         auth = "Basic %s" % b64
         headers = {'Content-type': 'application/json', 'Authorization': auth}
-        url = 'https://storage.scrapinghub.com/items/65427/1/2'
+        url = 'https://storage.scrapinghub.com/items/65427/1/2?format=json'
         return Response(requests.get(url, headers=headers).text)

@@ -3,11 +3,15 @@ import requests
 
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
+from django.http import HttpResponse
+from django.views.generic import View
+from datetime import datetime, timedelta
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import authentication, permissions
-from listing.serializers import UserSerializer, GroupSerializer
+from listing.serializers import UserSerializer, GroupSerializer, PostSerializer
+from listing.models import Post
 
 # Create your views here.
 
@@ -25,16 +29,33 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 
-class ListItems(APIView):
+class PostViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
-    def get(self, request, format=None):
-        """
-        Return a list of all users.
-        """
-        private_key = "8a94547f3ac24f18ab3dfac27602edb4"
-        b64 = base64.encodestring('%s:' % private_key).replace('\n', '')
-        auth = "Basic %s" % b64
-        headers = {'Content-type': 'application/json', 'Authorization': auth}
-        url = 'https://storage.scrapinghub.com/items/65427/1/2?format=json'
-        return Response(requests.get(url, headers=headers).json())
+def getScrapyRes(url):
+    private_key = "8a94547f3ac24f18ab3dfac27602edb4"
+    b64 = base64.encodestring('%s:' % private_key).replace('\n', '')
+    auth = "Basic %s" % b64
+    headers = {'Content-type': 'application/json', 'Authorization': auth}
+    return requests.get(url, headers=headers).json()
+ 
+def fetcher(request):
+    crawlerUrl = 'https://storage.scrapinghub.com/items/65427/1/3?format=json'
+    res = getScrapyRes(crawlerUrl)
+    for entry in res:
+        p = Post.get_or_create(url=entry.get('link'))
+        p.title = entry.get('title')
+        p.last_updated_at = parseTime(entry.get('timestamp'))
+        p.save()
+    return HttpResponse('success')
+
+def parseTime(time_string):
+    try:
+        date = datetime.strptime(time_string, "%Y-%m-%d")
+        return date + timedelta(seconds=1)
+    except ValueError:
+        datetime_string = datetime.today().date().strftime("%Y-%m-%d") + " " + time_string
+        format = '%Y-%m-%d %I:%M %p'
+        return datetime.strptime(datetime_string, format)

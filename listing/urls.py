@@ -2,6 +2,6 @@ from django.conf.urls import url
 from listing import views
 
 urlpatterns = [
-    url(r'^fetchMoonbbs$', views.fetcher, name='fetchMoonbbs'),
-    url(r'^fetchChineseInSFBay$', views.fetcher, name='fetchChineseInSFBay'),
+    url(r'^fetchMoonbbs$', views.fetchMoonbbs, name='fetchMoonbbs'),
+    url(r'^fetchChineseInSFBay$', views.fetchChineseInSFBay, name='fetchChineseInSFBay'),
 ]

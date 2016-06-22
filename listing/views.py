@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django.http import HttpResponse
 from django.views.generic import View
-from datetime import datetime, timedelta
+from datetime import datetime
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -41,8 +41,17 @@ def getScrapyRes(url):
     headers = {'Content-type': 'application/json', 'Authorization': auth}
     return requests.get(url, headers=headers).json()
  
-def fetcher(request):
+# fetch chineseinsfbay
+def fetchChineseInSFBay(request):
     crawlerUrl = 'https://storage.scrapinghub.com/items/65427/1/3?format=json'
+    fetcher(crawlerUrl)
+ 
+# fetch chineseinsfbay
+def fetchMoonbbs(request):
+    crawlerUrl = 'https://storage.scrapinghub.com/items/65427/2/2?format=json'
+    fetcher(crawlerUrl)
+
+def fetcher(crawlerUrl):
     res = getScrapyRes(crawlerUrl)
     for entry in res:
         p = Post.get_or_create(url=entry.get('link'))
@@ -51,10 +60,10 @@ def fetcher(request):
         p.save()
     return HttpResponse('success')
 
+# time_string is expected as 2016-05-17
 def parseTime(time_string):
     try:
-        date = datetime.strptime(time_string, "%Y-%m-%d")
-        return date + timedelta(seconds=1)
+        return datetime.strptime(time_string, "%Y-%m-%d")
     except ValueError:
         datetime_string = datetime.today().date().strftime("%Y-%m-%d") + " " + time_string
         format = '%Y-%m-%d %I:%M %p'

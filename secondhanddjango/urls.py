@@ -25,7 +25,7 @@ router.register(r'posts', views.PostViewSet)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include(router.urls)),
-    url(r'^listing/', include('listing.urls')),
+    url(r'^api/', include(router.urls)),
+    url(r'^', include('listing.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

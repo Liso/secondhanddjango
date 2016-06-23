@@ -17,7 +17,7 @@ from listing.models import Post
 # Create your views here.
 
 def index(request):
-    return render_to_response('listing/index.html', {}, context_instance=RequestContext(request))
+    return render_to_response('listing/home.html', {}, context_instance=RequestContext(request))
 
 class UserViewSet(viewsets.ModelViewSet):
     """

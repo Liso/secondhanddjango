@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!doctype html>
 <html>
   <head>
@@ -8,7 +10,7 @@
     <title>给你网-最活力的二手交易论坛</title>
     <!-- 公共样式 -->
     <!-- header样式 -->
-    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="{% static "./css/main.css" %}" rel="stylesheet" type="text/css">
   </head>
   <body>
     <!-- header -->
@@ -88,7 +90,7 @@
         <dd><a href="" class="hotS">单车</a></dd>
       </dl>
       <!--end #hotSearch-->
-      <div class="banner"><img src="images/banner.png" width="960" height="auto"  alt=""/></div>
+      <div class="banner"><img src="{% static "./images/banner.png" %}" width="960" height="auto"  alt=""/></div>
       <!--end #banner-->
       <ul class="sale_tab" id="saleTab">
         <li class="current hotTab">热门宝贝</li>

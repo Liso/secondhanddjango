@@ -136,22 +136,30 @@ var _rollbarConfig = {
         <div class="pager_container">
           <span hidefocus="hidefocus" action="prev" class="pager_prev pager_prev_disabled">
 
-          <a href="?page={{ contacts.previous_page_number }}">
-            <strong class="pager_lgthen {% if not contacts.has_previous %} pager_lgthen_dis {% endif %}"></strong>上一页</span>
+          <a {% if posts.has_previous %} href="?page={{ posts.previous_page_number }}" {% endif %}>
+            <strong class="pager_lgthen {% if not posts.has_previous %} pager_lgthen_dis {% endif %}"></strong>上一页</span>
           </a>
+          <a href="?page=1">
           <span hidefocus="hidefocus" page="1" class="pager_is_current">
           1
           </span>
+          </a>
+          <a href="?page=2">
           <span hidefocus="hidefocus" page="2" class="pager_not_current">
           2
           </span>
+          </a>
+          <a href="?page=3">
           <span hidefocus="hidefocus" page="3" class="pager_not_current">
           3
-          </span>···<span hidefocus="hidefocus" page="30" class="pager_not_current">
+          </span>
+          </a>
+          ···
+          <span hidefocus="hidefocus" page="30" class="pager_not_current">
           30
           </span>
-          <a href="?page={{ posts.next_page_number }}">
-            <span hidefocus="hidefocus" action="next" class="pager_next ">下一页<strong class="pager_lgthen "></strong></span>
+          <a {% if posts.has_next %} href="?page={{ posts.next_page_number }}" {% endif %}>
+            <span hidefocus="hidefocus" action="next" class="pager_next {% if not posts.has_next %} pager_lgthen_dis {% endif %}">下一页<strong class="pager_lgthen "></strong></span>
           </a>
         </div>
       </div>

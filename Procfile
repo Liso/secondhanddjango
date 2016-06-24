@@ -1,1 +1,1 @@
-web: newrelic-admin run-program gunicorn secondhanddjango.wsgi --log-file -
+web: gunicorn secondhanddjango.wsgi --log-file -

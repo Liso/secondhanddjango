@@ -124,5 +124,5 @@ ROLLBAR = {
     'access_token': 'c5f7e0a0e52b4cbb8b1ec241e782af5b',
     'environment': 'development' if DEBUG else 'production',
     'branch': 'master',
-    'root': '/absolute/path/to/code/root',
+    'root': BASE_DIR,
 }

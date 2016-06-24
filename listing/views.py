@@ -1,6 +1,7 @@
 import base64
 import requests
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.contrib.auth.models import User, Group
@@ -17,7 +18,19 @@ from listing.models import Post
 # Create your views here.
 
 def index(request):
-    return render_to_response('listing/home.html', {}, context_instance=RequestContext(request))
+    post_list = Post.objects.all().order_by('-last_updated_at')
+    paginator = Paginator(post_list, 17) # Show 17 posts per page
+
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        posts = paginator.page(paginator.num_pages)
+    return render_to_response('listing/home.html', {"posts": posts}, context_instance=RequestContext(request))
 
 class UserViewSet(viewsets.ModelViewSet):
     """

@@ -18,6 +18,7 @@ var _rollbarConfig = {
 </script>
     <!-- meta -->
     <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
     <meta content="二手交易,出售,求购,二手论坛" name="keywords">
     <meta name="description" content="给你网是最活力的二手交易论坛,提供最新最全最真实的二手交易信息,寻二手物件来给你网,出售、求购、二手交易首选给你网">
     <title>给你网-最活力的二手交易论坛</title>
@@ -112,54 +113,18 @@ var _rollbarConfig = {
       <!--end #hot&new_tab-->  
       <div class="pop_items">
         <ul>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
+          {% for post in posts %}
+          <li>
+          <a href="{{ post.url }}">
+          <span style="font-size:16px;">
+            {{ post.title }}
+          </span>
+          </a>
+          <span style="width:auto;float:right;color:#333;font-size:14px;">
+            {{ post.last_updated_at }}
+          </span>
           </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
-          <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
-            <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
-          </li>
+          {% endfor %}
           <li><span style="color:#e8534f;">[出售]</span><span style="font-size:16px;">全新 CHANEL包包 </span><span style="color:#01bfa6;">$2800 </span>
             <span style="width:auto;float:right;color:#333;font-size:14px;">2016-06-03  12:50</span>
           </li>
@@ -170,7 +135,10 @@ var _rollbarConfig = {
       <div class="item_con_pager">
         <div class="pager_container">
           <span hidefocus="hidefocus" action="prev" class="pager_prev pager_prev_disabled">
-          <strong class="pager_lgthen pager_lgthen_dis"></strong>上一页</span>
+
+          <a href="?page={{ contacts.previous_page_number }}">
+            <strong class="pager_lgthen {% if not contacts.has_previous %} pager_lgthen_dis {% endif %}"></strong>上一页</span>
+          </a>
           <span hidefocus="hidefocus" page="1" class="pager_is_current">
           1
           </span>
@@ -182,7 +150,9 @@ var _rollbarConfig = {
           </span>···<span hidefocus="hidefocus" page="30" class="pager_not_current">
           30
           </span>
-          <span hidefocus="hidefocus" action="next" class="pager_next ">下一页<strong class="pager_lgthen "></strong></span>
+          <a href="?page={{ posts.next_page_number }}">
+            <span hidefocus="hidefocus" action="next" class="pager_next ">下一页<strong class="pager_lgthen "></strong></span>
+          </a>
         </div>
       </div>
       <!--end #item_con_pager-->

@@ -84,8 +84,8 @@ var _rollbarConfig = {
       <br style="clear:both;">
       <div class="logo"></div>
       <div id="search_box" class="search_box">
-        <form id="searchForm" class="searchForm" name="searchForm" action="" method="get">
-          <input type="text" id="search_input" class="search_input" tabindex="1" maxlength="64" autocomplete="off" value="" placeholder="搜索" style="color: rgb(153, 153, 153);">
+        <form id="searchForm" class="searchForm" name="searchForm" action="{% url 'listing' %}" method="get">
+          <input type="text" id="search_input" name="kw" class="search_input" tabindex="1" maxlength="64" autocomplete="off" value="" placeholder="搜索" style="color: rgb(153, 153, 153);">
           <input type="submit" id="search_button" class="search_button" value="搜索" >
         </form>
         <input type="hidden" id="search_py" value="">
@@ -94,18 +94,10 @@ var _rollbarConfig = {
       <!--end #search_box-->
       <dl class="hotSearch">
         <dt>热门搜索：</dt>
-        <dd><a href="" class="hotS">宠物</a></dd>
-        <dd><a href="" class="hotS">全新</a></dd>
-        <dd><a href="" class="hotS">品牌</a></dd>
-        <dd><a href="" class="hotS">book</a></dd>
-        <dd><a href="" class="hotS">家具</a></dd>
-        <dd><a href="" class="hotS">包包</a></dd>
-        <dd><a href="" class="hotS">香奈儿</a></dd>
-        <dd><a href="" class="hotS">平板</a></dd>
-        <dd><a href="" class="hotS">单反</a></dd>
-        <dd><a href="" class="hotS">太阳镜</a></dd>
-        <dd><a href="" class="hotS">特斯拉</a></dd>
-        <dd><a href="" class="hotS">单车</a></dd>
+        <dd><a href="{% url 'listing' %}?kw=家具" class="hotS">家具</a></dd>
+        <dd><a href="{% url 'listing' %}?kw=包包" class="hotS">包包</a></dd>
+        <dd><a href="{% url 'listing' %}?kw=平板" class="hotS">平板</a></dd>
+        <dd><a href="{% url 'listing' %}?kw=单车" class="hotS">单车</a></dd>
       </dl>
       <!--end #hotSearch-->
       <div class="banner"><img src="{% static "./images/banner.png" %}" width="960" height="auto"  alt=""/></div>

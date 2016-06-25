@@ -19,7 +19,11 @@ from digg_paginator import DiggPaginator
 # Create your views here.
 
 def index(request):
-    post_list = Post.objects.all().order_by('-last_updated_at')
+    keyword = request.GET.get('kw')
+    if keyword:
+        post_list = Post.objects.filter(title__contains=keyword).order_by('-last_updated_at')
+    else:
+        post_list = Post.objects.all().order_by('-last_updated_at')
     paginator = DiggPaginator(post_list, 17, body=5) # Show 17 posts per page
 
     page = request.GET.get('page')

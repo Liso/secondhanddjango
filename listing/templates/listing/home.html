@@ -125,7 +125,7 @@ var _rollbarConfig = {
           </span>
           </a>
           <span style="width:auto;float:right;color:#333;font-size:14px;">
-            {{ post.last_updated_at }}
+            {{ post.last_updated_at|date:"D d M Y" }} {% if not post.is_past_due %} {{ post.last_updated_at|time:"H:i" }} {% endif %}
           </span>
           </li>
           {% endfor %}
@@ -159,9 +159,11 @@ var _rollbarConfig = {
           </span>
           </a>
           ···
-          <span hidefocus="hidefocus" page="30" class="pager_not_current">
-          30
+          <a href="?page={{ posts.paginator.num_pages }}">
+          <span hidefocus="hidefocus" page="{{ posts.paginator.num_pages }}" class="pager_not_current">
+          {{ posts.paginator.num_pages }}
           </span>
+          </a>
           <a {% if posts.has_next %} href="?page={{ posts.next_page_number }}" {% endif %}>
             <span hidefocus="hidefocus" action="next" class="pager_next {% if not posts.has_next %} pager_lgthen_dis {% endif %}">下一页<strong class="pager_lgthen "></strong></span>
           </a>

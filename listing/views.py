@@ -14,12 +14,13 @@ from rest_framework.response import Response
 from rest_framework import authentication, permissions
 from listing.serializers import UserSerializer, GroupSerializer, PostSerializer
 from listing.models import Post
+from digg_paginator import DiggPaginator
 
 # Create your views here.
 
 def index(request):
     post_list = Post.objects.all().order_by('-last_updated_at')
-    paginator = Paginator(post_list, 17) # Show 17 posts per page
+    paginator = DiggPaginator(post_list, 17, body=5) # Show 17 posts per page
 
     page = request.GET.get('page')
     try:

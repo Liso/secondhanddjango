@@ -24,7 +24,10 @@ def index(request):
 
     page = request.GET.get('page')
     try:
-        posts = paginator.page(page)
+        if not page:
+            posts = paginator.page(1)
+        else:
+            posts = paginator.page(page)
     except PageNotAnInteger:
         # If page is not an integer, deliver first page.
         posts = paginator.page(1)

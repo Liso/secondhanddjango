@@ -25,8 +25,12 @@ SECRET_KEY = 'w=&rmm%b#1=pd0753it0mnwli0@z46^qx9#x2=-6fis7v&ma&s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = not os.environ.get('PROD')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+'*'
+]
 
+ADMINS = (('Kevin Chen', 'yuechen1989@gmail.com'))
+MANAGERS = (('Kevin Chen', 'yuechen1989@gmail.com'))
 
 # Application definition
 

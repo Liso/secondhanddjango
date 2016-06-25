@@ -22,6 +22,10 @@ var _rollbarConfig = {
     <meta content="二手交易,出售,求购,二手论坛" name="keywords">
     <meta name="description" content="给你网是最活力的二手交易论坛,提供最新最全最真实的二手交易信息,寻二手物件来给你网,出售、求购、二手交易首选给你网">
     <title>给你网-最活力的二手交易论坛</title>
+    {% if prod %}
+    <script type="text/javascript" src="{% static "./js/googleanalytics.js" %}">
+    </script>
+    {% endif %}
     <!-- 公共样式 -->
     <!-- header样式 -->
     <link href="{% static "./css/main.css" %}" rel="stylesheet" type="text/css">

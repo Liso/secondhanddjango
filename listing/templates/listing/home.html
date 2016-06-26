@@ -1,4 +1,5 @@
 ﻿{% load staticfiles %}
+{% load custom_templates %}
 
 <!doctype html>
 <html>
@@ -22,6 +23,8 @@ var _rollbarConfig = {
     <meta content="二手交易,出售,求购,二手论坛" name="keywords">
     <meta name="description" content="给你网是最活力的二手交易论坛,提供最新最全最真实的二手交易信息,寻二手物件来给你网,出售、求购、二手交易首选给你网">
     <title>给你网-最活力的二手交易论坛</title>
+    <script type="text/javascript" src="{% static "./js/jquery-ui.min.js" %}">
+    </script>
     {% if prod %}
     <script type="text/javascript" src="{% static "./js/googleanalytics.js" %}">
     </script>
@@ -61,7 +64,7 @@ var _rollbarConfig = {
           </div>
           <ul class="nav_wrap">
             <li>
-              <a href="" class="current">首页</a>
+              <a href="{% url 'listing' %}" class="current">首页</a>
             </li>
             <li>
               <a href="" >出售</a>
@@ -130,15 +133,16 @@ var _rollbarConfig = {
       <!--上下页-->
       <div class="item_con_pager">
         <div class="pager_container">
-          <a {% if posts.has_previous %} href="?page={{ posts.previous_page_number }}" {% endif %}>
-            <span hidefocus="hidefocus" action="prev" class="pager_prev {% if not posts.has_previous %} pager_prev_disabled {% endif %}">
-            <strong class="pager_lgthen {% if not posts.has_previous %} pager_lgthen_dis {% endif %}"></strong>上一页</span>
+          <a {% if posts.has_previous %} href="{% append_to_get page=posts.previous_page_number %}" {% endif %}>
+          <span hidefocus="hidefocus" action="prev" class="pager_prev {% if not posts.has_previous %} pager_prev_disabled {% endif %}">
+            <strong class="pager_lgthen {% if not posts.has_previous %} pager_lgthen_dis {% endif %}"></strong>上一页
+          </span>
           </a>
 
     {% for num in posts.page_range %}
         {% if not num %} ...  {# literally output dots #}
         {% else %}
-          <a href="?page={{ num }}">
+          <a href="{% append_to_get page=num %}">
           <span hidefocus="hidefocus" page="{{ num }}" {% ifequal num posts.number %} class="pager_is_current" {% else %} class="pager_not_current" {% endifequal %}>
           {{ num }}
           </span>
@@ -146,8 +150,10 @@ var _rollbarConfig = {
         {% endif %}
     {% endfor %}
 
-          <a {% if posts.has_next %} href="?page={{ posts.next_page_number }}" {% endif %}>
-            <span hidefocus="hidefocus" action="next" class="pager_next {% if not posts.has_next %} pager_lgthen_dis {% endif %}">下一页<strong class="pager_lgthen "></strong></span>
+          <a {% if posts.has_next %} href="{% append_to_get page=posts.next_page_number %}" {% endif %}>
+          <span hidefocus="hidefocus" action="next" class="pager_next {% if not posts.has_next %} pager_lgthen_dis {% endif %}">
+            下一页<strong class="pager_lgthen "></strong>
+          </span>
           </a>
         </div>
       </div>

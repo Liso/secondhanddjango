@@ -1,5 +1,6 @@
 import base64
 import requests
+import pytz
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, render_to_response
@@ -68,7 +69,7 @@ def getScrapyRes(url):
  
 # fetch chineseinsfbay
 def fetchChineseInSFBay(request):
-    crawlerUrl = 'https://storage.scrapinghub.com/items/65427/1/4?format=json'
+    crawlerUrl = 'https://storage.scrapinghub.com/items/65427/1/5?format=json'
     return fetcher(crawlerUrl)
  
 # fetch chineseinsfbay

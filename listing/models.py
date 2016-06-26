@@ -18,6 +18,6 @@ class Post(models.Model):
     @property
     def is_past_due(self):
         tz = pytz.timezone('America/Los_Angeles')
-        if datetime.now(tz) - timedelta(days=1) > self.last_updated_at.replace(tzinfo=None):
+        if datetime.now(tz) - timedelta(days=1) > self.last_updated_at:
             return True
         return False

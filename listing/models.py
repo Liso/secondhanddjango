@@ -1,3 +1,4 @@
+import pytz
 from django.db import models
 from datetime import datetime, timedelta
 
@@ -16,6 +17,7 @@ class Post(models.Model):
 
     @property
     def is_past_due(self):
-        if datetime.today() - timedelta(days=1) > self.last_updated_at.replace(tzinfo=None):
+        tz = pytz.timezone('America/Los_Angeles')
+        if datetime.now(tz) - timedelta(days=1) > self.last_updated_at.replace(tzinfo=None):
             return True
         return False

@@ -88,6 +88,9 @@ def parseTime(time_string):
     try:
         return datetime.strptime(time_string, "%Y-%m-%d")
     except ValueError:
-        datetime_string = datetime.today().date().strftime("%Y-%m-%d") + " " + time_string
         format = '%Y-%m-%d %I:%M %p'
-        return datetime.strptime(datetime_string, format)
+        try:
+          return datetime.strptime(time_string, format)
+        except ValueError:
+          tz = pytz.timezone('America/Los_Angeles')
+          return datetime.now(tz)

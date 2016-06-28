@@ -69,18 +69,20 @@ def getScrapyRes(url):
  
 # fetch chineseinsfbay
 def fetchChineseInSFBay(request):
-    crawlerUrl = 'https://storage.scrapinghub.com/items/65427/1/5?format=json'
+    job = request.GET.get("job")
+    crawlerUrl = 'https://storage.scrapinghub.com/items/65427/1/' + job + '?format=json'
     return fetcher(crawlerUrl)
  
 # fetch chineseinsfbay
 def fetchMoonbbs(request):
-    crawlerUrl = 'https://storage.scrapinghub.com/items/65427/2/3?format=json'
+    job = request.GET.get("job")
+    crawlerUrl = 'https://storage.scrapinghub.com/items/65427/2/' + job + '?format=json'
     return fetcher(crawlerUrl)
 
 def fetcher(crawlerUrl):
     res = getScrapyRes(crawlerUrl)
     for entry in res:
-        updated_values = {'title': entry.get('title'), 'last_updated_at': parseTime(entry.get('timestamp'))}
+        updated_values = {'tag': entry.get('tag'), 'title': entry.get('title'), 'last_updated_at': parseTime(entry.get('timestamp'))}
         p, created = Post.objects.update_or_create(url=entry.get('link'), defaults=updated_values)
     return HttpResponse('success')
 

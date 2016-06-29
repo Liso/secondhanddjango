@@ -21,3 +21,7 @@ class Post(models.Model):
         if datetime.now(tz) - timedelta(days=1) > self.last_updated_at:
             return True
         return False
+
+    @property
+    def is_only_date(self):
+        return self.last_updated_at.hour == 7 and self.last_updated_at.minute == 0 and self.last_updated_at.second == 0

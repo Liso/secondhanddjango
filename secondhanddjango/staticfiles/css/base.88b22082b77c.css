@@ -1,0 +1,269 @@
+@charset "utf-8";
+*{margin:0;padding:0;}
+
+/*通用*/
+.html,body{
+	font-size:14px;
+	font-family:"Hiragino Sans GB","Microsoft Yahei","SimSun","Arial","Helvetica Neue","Helvetica";
+	color:#333;
+	background-color:#ffffff;
+	-webkit-appearance: none; 
+	-webkit-font-smoothing:antialiased;}
+
+
+ul,ol,dl{list-style-type: none;}
+a {text-decoration: none;}
+
+/*白色导航*/
+#nav {
+    min-width:960px;
+    height: 46px;
+    border-bottom: 1px solid #c6c6c6;
+    background-color: #ffffff;}
+#nav .inn {
+    width: 960px;
+    margin: 0 auto;
+}
+#nav .nav_l {
+    float: left;
+    width: 150px;
+    overflow: hidden;
+}
+.icon_locat {
+	background-image: url("../images/icon_locat.fb00dcf0cac1.png");
+	background-repeat: no-repeat;
+	background-position:0 8px;
+}
+.suggestCity {
+    float: left;
+    font-size: 18px;
+	padding-top:12px;
+    line-height: 34px;
+	color:#fa886d;
+}
+.suggestCity em {
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+	font-style: normal;
+}
+
+#nav .nav_r {
+    float: right;
+    width:auto;
+    overflow: hidden;
+	padding-top:18px;
+}
+
+.sign_in {color:#222;
+         font-size:16px;}
+.regist {color:#222;
+         font-size:16px;}
+.sign_in:hover {color:#fa886d;}
+.regist:hover {color:#fa886d;}
+
+.lan {color:#666;
+     }
+.lan.current {color:#fa886d;
+         }
+/*白色导航内容结束*/
+
+/*花色导航内容*/
+#mainNav{
+	height:150px;
+	width:auto;
+	color: #9b2055;
+    line-height: 35px;
+    font-size: 18px;
+    background-color: #f6d7d7;
+    background-image: -moz-linear-gradient(left, #f6d7d7, #aebddc);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f6d7d7), to(#aebddc));
+    background-image: -webkit-linear-gradient(left, #f6d7d7, #aebddc);
+    background-image: -o-linear-gradient(left, #f6d7d7, #aebddc);
+    background-image: linear-gradient(to right, #f6d7d7, #aebddc);
+    background-repeat: repeat-x;
+    border-bottom: 5px solid #9b2055;
+	min-width:960px; /* sets max-width for IE */
+    _width:expression(document.body.clientWidth < 960 ? "960px" : "auto");
+}
+	
+#mainNav .inn {
+    width: 960px;
+    margin: 0 auto;
+	clear:both;
+}
+#mainNav .mainNav_l {
+    float: left;
+}
+
+.logo {
+	width: 155px;
+	height:150px;
+	float: left;
+	margin-right: 15px;
+	background-image: url("../images/logo_max.709bb1a98519.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+}	
+.slogan{
+	height: 94px;
+	padding-top:56px;
+	float: left;
+	margin-right: 20px;
+	line-height:20px;
+	font-family: "造字工房悦黑（非商用）常规体";
+
+}
+.mainNav_wrap {
+    float: left;
+	padding-top:82px;
+}
+#mainNav .mainNav_wrap li {
+    display: inline-block;
+    margin: 0 16px;
+    position: relative;
+	
+}
+#mainNav .mainNav_wrap li a {
+    display: block;
+    font-size: 18px;
+    color: #9b2055;
+    line-height: 51px;
+    padding: 0 5px;
+}
+#mainNav .mainNav_wrap li a.current {
+    color: #492c8d;
+}	
+#mainNav .mainNav_r {
+    float: right;
+    width:auto;
+    overflow: hidden;
+	padding-top:18px;
+}
+.search_form{ color:#492c8d;
+padding-top:70px;}
+.search_form span{}
+.search_box {
+    border:0;
+    width: 210px;
+    height: 20px;
+    position: relative;
+	float:left;
+	margin-top:3px;
+}
+.search_input {
+    width: 146px;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    font-size: 14px;
+    padding: 3px 5px;
+    margin: 0;
+    border:0;
+	border-top-left-radius:6px;
+    border-bottom-left-radius:6px;}
+.search_button {
+    height:26px;
+    width: 52px;
+    background: #e8534f;
+    float: right;
+	text-align:center;
+	line-height:28px;
+	color:#cfc9c9;
+	border:0;
+    cursor: pointer;
+	-webkit-appearance:none;
+	background-color: #fff;
+    background-image: -moz-linear-gradient(top, #fff, #ddd);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #fff, #ddd);
+    background-image: -o-linear-gradient(top, #fff, #ddd);
+    background-image: linear-gradient(to bottom, #fff, #ddd);
+    background-repeat: repeat-x;
+	border-top-right-radius:6px;
+    border-bottom-right-radius:6px;
+}
+.search_button:hover {
+	-webkit-appearance:none;
+	background-color: #ddd;
+    background-image: -moz-linear-gradient(top, #ddd, #fff);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ddd), to(#fff));
+    background-image: -webkit-linear-gradient(top, #ddd, #fff);
+    background-image: -o-linear-gradient(top, #ddd, #fff);
+    background-image: linear-gradient(to bottom, #ddd, #fff);
+    background-repeat: repeat-x;
+}
+/*花色导航内容结束*/
+
+
+/*小header*/
+#subheader{}
+#suspendedNav{
+	height:52px;
+	width:100%;
+	color: #9b2055;
+    line-height: 35px;
+    font-size: 18px;
+    background-color: #f6d7d7;
+    background-image: -moz-linear-gradient(left, #f6d7d7, #aebddc);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f6d7d7), to(#aebddc));
+    background-image: -webkit-linear-gradient(left, #f6d7d7, #aebddc);
+    background-image: -o-linear-gradient(left, #f6d7d7, #aebddc);
+    background-image: linear-gradient(to right, #f6d7d7, #aebddc);
+    background-repeat: repeat-x;
+    border-bottom: 5px solid #9b2055;
+	min-width:960px; /* sets max-width for IE */
+    _width:expression(document.body.clientWidth < 960 ? "960px" : "auto");
+}
+	
+#suspendedNav .inn {
+    width: 960px;
+    margin: 0 auto;
+	clear:both;
+}
+#suspendedNav .suspendedNav_l {
+    float: left;
+}
+
+.logo_s {
+	width: 51px;
+	height:52px;
+	float: left;
+	margin-right: 15px;
+	background-image: url("../images/logo_s.6e43618c2b19.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+}	
+
+.suspendedNav_wrap {
+    float: left;
+	padding-top:12px;
+	padding-left:70px;
+}
+#suspendedNav .suspendedNav_wrap li {
+    display: inline-block;
+    margin: 0 16px;
+    position: relative;
+	
+}
+#suspendedNav .suspendedNav_wrap li a {
+    display: block;
+    font-size: 18px;
+    color: #9b2055;
+    padding: 0 5px;
+}
+#suspendedNav .suspendedNav_wrap li a.current {
+    color: #492c8d;
+}	
+#suspendedNav .suspendedNav_r {
+    float: right;
+    width:auto;
+    overflow: hidden;
+	padding-top:6px;
+}
+.suspendedNav_r .search_form{ 
+color:#492c8d;
+padding-top:6px;}
+
+
+/*小header结束*/

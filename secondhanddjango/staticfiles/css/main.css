@@ -171,6 +171,7 @@ a {text-decoration: none;}
     background: #e8534f;
     float: right;
     cursor: pointer;
+    -webkit-appearance: none;
 }
 .hotSearch {
     margin: 5px 108px 15px;

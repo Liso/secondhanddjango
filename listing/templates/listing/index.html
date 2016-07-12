@@ -1,0 +1,454 @@
+{% load staticfiles %}
+{% load custom_templates %}
+
+<!doctype html>
+<html>
+<head>
+<script>
+var _rollbarConfig = {
+    accessToken: "a842fcd2456647b6b20c6e38ebab08bd",
+    captureUncaught: true,
+    captureUnhandledRejections: false,
+    payload: {
+        environment: {% if prod %}"production" {% else %} "development" {% endif %}
+        
+    }
+};
+// Rollbar Snippet
+!function(r){function e(t){if(o[t])return o[t].exports;var n=o[t]={exports:{},id:t,loaded:!1};return r[t].call(n.exports,n,n.exports,e),n.loaded=!0,n.exports}var o={};return e.m=r,e.c=o,e.p="",e(0)}([function(r,e,o){"use strict";var t=o(1).Rollbar,n=o(2);_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://d37gvrvc0wt4s1.cloudfront.net/js/v1.9/rollbar.min.js";var a=t.init(window,_rollbarConfig),i=n(a,_rollbarConfig);a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,i)},function(r,e){"use strict";function o(r){return function(){try{return r.apply(this,arguments)}catch(e){try{console.error("[Rollbar]: Internal error",e)}catch(o){}}}}function t(r,e,o){window._rollbarWrappedError&&(o[4]||(o[4]=window._rollbarWrappedError),o[5]||(o[5]=window._rollbarWrappedError._rollbarContext),window._rollbarWrappedError=null),r.uncaughtError.apply(r,o),e&&e.apply(window,o)}function n(r){var e=function(){var e=Array.prototype.slice.call(arguments,0);t(r,r._rollbarOldOnError,e)};return e.belongsToShim=!0,e}function a(r){this.shimId=++c,this.notifier=null,this.parentShim=r,this._rollbarOldOnError=null}function i(r){var e=a;return o(function(){if(this.notifier)return this.notifier[r].apply(this.notifier,arguments);var o=this,t="scope"===r;t&&(o=new e(this));var n=Array.prototype.slice.call(arguments,0),a={shim:o,method:r,args:n,ts:new Date};return window._rollbarShimQueue.push(a),t?o:void 0})}function l(r,e){if(e.hasOwnProperty&&e.hasOwnProperty("addEventListener")){var o=e.addEventListener;e.addEventListener=function(e,t,n){o.call(this,e,r.wrap(t),n)};var t=e.removeEventListener;e.removeEventListener=function(r,e,o){t.call(this,r,e&&e._wrapped?e._wrapped:e,o)}}}var c=0;a.init=function(r,e){var t=e.globalAlias||"Rollbar";if("object"==typeof r[t])return r[t];r._rollbarShimQueue=[],r._rollbarWrappedError=null,e=e||{};var i=new a;return o(function(){if(i.configure(e),e.captureUncaught){i._rollbarOldOnError=r.onerror,r.onerror=n(i);var o,a,c="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(o=0;o<c.length;++o)a=c[o],r[a]&&r[a].prototype&&l(i,r[a].prototype)}return e.captureUnhandledRejections&&(i._unhandledRejectionHandler=function(r){var e=r.reason,o=r.promise,t=r.detail;!e&&t&&(e=t.reason,o=t.promise),i.unhandledRejection(e,o)},r.addEventListener("unhandledrejection",i._unhandledRejectionHandler)),r[t]=i,i})()},a.prototype.loadFull=function(r,e,t,n,a){var i=function(){var e;if(void 0===r._rollbarPayloadQueue){var o,t,n,i;for(e=new Error("rollbar.js did not load");o=r._rollbarShimQueue.shift();)for(n=o.args,i=0;i<n.length;++i)if(t=n[i],"function"==typeof t){t(e);break}}"function"==typeof a&&a(e)},l=!1,c=e.createElement("script"),d=e.getElementsByTagName("script")[0],p=d.parentNode;c.crossOrigin="",c.src=n.rollbarJsUrl,c.async=!t,c.onload=c.onreadystatechange=o(function(){if(!(l||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){c.onload=c.onreadystatechange=null;try{p.removeChild(c)}catch(r){}l=!0,i()}}),p.insertBefore(c,d)},a.prototype.wrap=function(r,e){try{var o;if(o="function"==typeof e?e:function(){return e||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._wrapped){r._wrapped=function(){try{return r.apply(this,arguments)}catch(e){throw e._rollbarContext=o()||{},e._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=e,e}},r._wrapped._isWrap=!0;for(var t in r)r.hasOwnProperty(t)&&(r._wrapped[t]=r[t])}return r._wrapped}catch(n){return r}};for(var d="log,debug,info,warn,warning,error,critical,global,configure,scope,uncaughtError,unhandledRejection".split(","),p=0;p<d.length;++p)a.prototype[d[p]]=i(d[p]);r.exports={Rollbar:a,_rollbarWindowOnError:t}},function(r,e){"use strict";r.exports=function(r,e){return function(o){if(!o&&!window._rollbarInitialized){var t=window.RollbarNotifier,n=e||{},a=n.globalAlias||"Rollbar",i=window.Rollbar.init(n,r);i._processShimQueue(window._rollbarShimQueue||[]),window[a]=i,window._rollbarInitialized=!0,t.processPayloads()}}}}]);
+// End Rollbar Snippet
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8010059870144357",
+    enable_page_level_ads: true
+  });
+</script>
+
+<!-- meta -->
+<meta charset="utf-8">
+<meta content="二手交易,出售,求购,二手论坛" name="keywords">
+
+<meta name="description" content="易奇网 最活力的二手交易论坛,提供最新最全最真实的二手交易信息,寻二手物件来易奇网,出售、求购、二手交易首选易奇网">
+
+<title>易奇网-最活力的二手交易论坛</title>
+<!-- 公共样式 -->
+<link href="{% static "css/base.css" %}" rel="stylesheet" type="text/css">
+<!-- 图标文字样式 -->
+<link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+<!-- 样式 -->
+<link href="{% static "css/home.css" %}" rel="stylesheet" type="text/css">
+    {% if prod %}
+    <script type="text/javascript" src="{% static "js/googleanalytics.js" %}">
+    </script>
+    {% endif %}
+    <script type="text/javascript" src="{% static "js/jquery-ui.min.js" %}">
+    </script>
+    <script type="text/javascript" src="{% static "js/listing.js" %}">
+    </script>
+
+</head>
+
+<body>
+<!-- header -->
+<div id="header">
+<!--白色导航-->
+<div id="nav">
+<div class="inn">
+<div class="nav_l">
+<div class="suggestCity"><em class="icon_locat" style="padding:15px 10px;"></em><strong>旧金山</strong><em id="changeCity_btn">[切换城市]</em></div>
+</div>
+
+<div class="nav_r">
+<span>
+<a href="" class="sign_in">登录</a>
+/
+<a href="" class="regist">注册</a>
+</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span>
+<a href="" class="lan">EN</a>
+/
+<a href="" class="lan current">中文</a>
+</span>
+</div>
+</div>
+</div>
+<!--end #nav-->
+<!--花色导航-->
+<div id="mainNav">
+
+<div class="inn">
+<div class="mainNav_l">
+<div class="logo"></div>
+<div class="slogan">THE PERFECT PLACE<br/>TO EXCHANGE<br/> UNWANTED TREASURES</div>
+</div>
+<!--end mainNav_l-->
+<ul class="mainNav_wrap">
+				<li>
+					<a href="" class="current">首页</a>
+				</li>
+				<li>
+					<a href="" >出售</a>
+				</li>
+				<li>
+					<a href="" target="">求购</a>
+				</li>
+							</ul>
+
+<!--end mainNav_wrap-->
+
+<div class="mainNav_r">
+ <div class="search_form">
+    	<div id="search_box" class="search_box">
+        	 <form id="searchForm" class="searchForm" name="searchForm" action="{% url 'listing' %}" method="get">
+      <input type="text" id="search_input" name="kw" class="search_input" tabindex="1" maxlength="64" autocomplete="off" value="" placeholder="搜索" style="color: rgb(153, 153, 153);">
+
+        <div id="search_button" class="search_button" > <i class="fa fa-search"> </i> </div>
+    </form>
+        </div>
+      &nbsp;&nbsp;
+    </div>
+</div>
+<!--end mainNav_r-->
+</div>
+<!--end inn-->
+</div>
+<!--end #mainNav-->
+</div>
+<!--end #header-->
+
+<!-- subheader
+<div id="subheader" class="subheader">
+<div id="suspendedNav">
+<div class="inn">
+<div class="suspendedNav_l">
+<div class="logo_s"></div>
+</div>
+
+<ul class="suspendedNav_wrap">
+				<li>
+					<a href="" >帮你淘</a>
+				</li>
+				<li>
+					<a href="" >出售</a>
+				</li>
+				<li>
+					<a href="" >求购</a>
+				</li>
+							</ul>
+<div class="suspendedNav_r">
+ <div class="search_form">
+    	<div id="search_box" class="search_box">
+        	 <form id="miniSearchForm" class="searchForm" name="searchForm" action="{% url 'listing' %}" method="get">
+      <input type="text" id="search_input" name="kw" class="search_input" tabindex="1" maxlength="64" autocomplete="off" value="" placeholder="搜索" style="color: rgb(153, 153, 153);">
+
+        <div id="mini_search_button" class="search_button" > <i class="fa fa-search"> </i> </div>
+    </form>
+        </div>
+      &nbsp;&nbsp;<span>搜一搜</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span>
+<a href="" class="sign_in">登录</a>
+/
+<a href="" class="regist">注册</a>
+</span>
+    </div>  
+</div>
+</div>
+</div>
+</div>
+end #subheader-->
+
+
+<!--页面主体 -->
+<div class="cont">
+
+<!--菜单层-->
+<div class="first_floor">
+<!--主菜单-->
+<div class="primary_nav">
+<ul class="primary_nav_list">
+<li class="primary_nav_li primary_nav_li_1">
+<dl class="pri_nav_wrap">
+<dt>闲置数码</dt>
+<dd>
+<span><a href="">手机</a></span><span><a href="">相机</a></span><span><a href="">笔记本</a></span>
+</dd>
+</dl>
+</li>
+<li class="primary_nav_li primary_nav_li_2">
+<dl class="pri_nav_wrap">
+<dt>闲置母婴</dt>
+<dd>
+<span><a href="">童装</a></span><span><a href="">宝宝用品</a></span><span><a href="">玩具</a></span>
+</dd>
+</dl>
+</li>
+<li class="primary_nav_li primary_nav_li_3">
+<dl class="pri_nav_wrap">
+<dt>家居日用</dt>
+<dd>
+<span><a href="">家居</a></span><span><a href="">家纺</a></span><span><a href="">日用</a></span>
+</dd>
+</dl></li>
+<li class="primary_nav_li primary_nav_li_4">
+<dl class="pri_nav_wrap">
+<dt>影音家电</dt>
+<dd>
+<span><a href="">大家电</a></span><span><a href="">小家电</a></span><span><a href="">料理机</a></span>
+</dd>
+</dl></li>
+<li class="primary_nav_li primary_nav_li_5">
+<dl class="pri_nav_wrap">
+<dt>鞋服配饰</dt>
+<dd>
+<span><a href="">女装</a></span><span><a href="">女鞋</a></span><span><a href="">箱包</a></span><span><a href="">配饰</a></span>
+</dd>
+</dl></li>
+<li class="primary_nav_li primary_nav_li_6">
+<dl class="pri_nav_wrap">
+<dt>奢侈品</dt>
+<dd>
+<span><a href="">珠宝</a></span><span><a href="">饰品</a></span><span><a href="">艺术收藏</a></span>
+</dd>
+</dl></li>
+</ul>
+</div>
+<!--end primary_nav-->
+<div class="banner" id="banner">
+<ul class="banner_list">
+<li><a href=""><img src="{% static "images/banner_yiqi.jpg" %}" width="728" height="426" alt="易网打尽珍奇宝贝"/></a>
+</li>
+</ul>
+</div>
+<!--end banner-->
+<br style="clear:both;" />
+</div> 
+<!--end first_floor-->
+
+
+<!--最新发布层-->
+<div class="second_floor">
+<div class="f_title">
+<div class="tit">
+<span class="fa-stack">
+<i class="fa fa-circle-thin fa-stack-2x"></i>
+  <i class="fa fa-star fa-stack-1x"></i>
+</span>
+<span style="font-size:16px;">最新发布</span></div>
+<!--end tit-->
+<div class="paging">
+<ul>
+<a href=""><li action="prev" class="page_li page_li_l "> <i class="fa fa-angle-left fa-2x"></i> </li></a>
+<a href=""><li action="next" class="page_li page_li_r is_current"> <i class="fa fa-angle-right fa-2x"></i> </li></a>
+</ul>
+</div>
+</div>
+<!--end f_title-->
+<div class="f_cont">
+<ul class="f_cont_ul">
+<li class="f_cont_ul_li" style="margin-right:15px;">
+<div class="product_img"><a href=""><img src="{% static "images/sofa.png" %}" width="310" height="auto" border="0"/></a></div>
+<div class="product_title"><a href="">Fremont-sofa chair $60</a></div>
+<div class="publisher">Posted on <span style="color:#9b2055;">Sun 03 Jul, 2016</span> By <span style="color:#9b2055;">joanna du</span></div>
+</li>
+<li class="f_cont_ul_li" style="margin-right:15px;">
+<div class="product_img"><a href=""><img src="{% static "images/2.png" %}" width="310" height="auto" border="0"/></a></div>
+<div class="product_title"><a href="">全新GOLD STANDARD蛋白粉低价转</a></div>
+<div class="publisher">Posted on <span style="color:#9b2055;">Sun 03 Jul, 2016</span> By <span style="color:#9b2055;">joanna du</span></div>
+</li>
+<li class="f_cont_ul_li">
+<div class="product_img"><a href=""><img src="{% static "images/1.png" %}" width="310" height="auto" border="0"/></a></div>
+<div class="product_title"><a href="">低价转让Apple MacBook Air 13 inch Mid 2013 $540</a></div>
+<div class="publisher">Posted on <span style="color:#9b2055;">Sun 03 Jul, 2016</span> By <span style="color:#9b2055;">joanna du</span></div>
+</li>
+</ul>
+</div>
+<!--end f_cont-->
+<br style="clear:both;" />
+</div>
+<!--end second_floor-->
+
+
+<!--分类信息层-->
+<div class="third_floor">
+<div class="third_f_l">
+<div class="f_title">
+<div class="tit">
+<span class="fa-stack">
+<i class="fa fa-circle-thin fa-stack-2x"></i>
+  <i class="fa fa-tags fa-stack-1x"></i>
+</span>
+<span style="font-size:16px;">分类等级</span></div>
+</div>
+<!--end f_title-->
+<div class="third_f_l_cont">
+<ul>
+<li>
+<dl class="third_f_l_wrap">
+<dt>类型:</dt>
+<dd>
+<span><a href="">转让</a></span><span><a href="">求购</a></span><span><a href="">免费赠送</a></span>
+</dd>
+</dl>
+</li>
+<li>
+<dl class="third_f_l_wrap">
+<dt>新旧:</dt>
+<dd>
+<span><a href="">全新</a></span><span><a href="">95成新</a></span><span><a href="">9成新</a></span><span><a href="">8成新</a></span><span><a href="">7成新</a></span><span><a href="">6成新</a></span><span><a href="">陈旧</a></span>
+</dd>
+</dl>
+</li>
+<li>
+<dl class="third_f_l_wrap">
+<dt>价格:</dt>
+<dd class="">
+<span><a href="">100元以下</a></span><span><a href="">100-300元</a></span><span><a href="">300-500元</a></span><span><a href="">500-1000元</a></span><span><a href="">1000-1500元</a></span><span><a href="">1500-2000元</a></span><span><a href="">2000-3000元</a></span><span><a href="">3000元以上</a></span>
+</dd>
+</dl>
+</li>
+<li>
+<dl class="third_f_l_wrap">
+<dt>所在地:</dt>
+<dd>
+<span><a href="">湾区</a></span><span><a href="">纽约</a></span><span><a href="">芝加哥</a></span><span><a href="">洛杉矶</a></span><span><a href="">西雅图</a></span><span><a href="">波士顿</a></span>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<!--end third_f_l_cont-->
+</div>
+<!--end third_f_l-->
+<div class="third_f_r">
+<div class="third_f_r_up">
+<div class="f_title">
+<div class="tit">
+<span class="fa-stack">
+<i class="fa fa-circle-thin fa-stack-2x"></i>
+  <i class="fa fa-envelope fa-stack-1x"></i>
+</span>
+<span style="font-size:16px;">Newletter</span></div>
+</div>
+<!--end f_title-->
+<div class="note">Subscribe to our email newsletter. </div>
+
+<div id="subsearch_box" class="subsearch_box">
+        	 <form id="subsearchForm" class="subsearchForm" name="subsearchForm" action="" method="get">
+      <input type="text" id="subsearch_input" class="subsearch_input" tabindex="1" maxlength="64" autocomplete="off" value="" placeholder="Enter your email" style="color: rgb(85,85,85);">
+
+        <input type="submit" id="subsearch_button" class="subsearch_button" value="Subscribe" >
+    </form>
+        </div>
+
+
+</div>
+<!--end third_f_r_up-->
+<div class="third_f_r_down">
+<div class="f_title">
+<div class="tit">
+<span class="fa-stack">
+<i class="fa fa-circle-thin fa-stack-2x"></i>
+  <i class="fa fa-share-alt fa-stack-1x"></i>
+</span>
+<span style="font-size:16px;">Follow us</span></div>
+</div>
+<!--end f_title-->
+<ul class="val_icon">
+<li>
+<span><a href=""><img src="{% static "images/Facebook.png" %}" width="36" height="36"/></a></span><span><a href=""><img src="{% static "images/Twitter.png" %}" width="36" height="36"/></a></span><span><a href=""><img src="{% static "images/Google _.png" %}" width="36" height="36"/></a></span>
+</li>
+<li>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- extreasures home -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8010059870144357"
+     data-ad-slot="9038511422"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</li>
+</ul>
+</div>
+<!--end third_f_r_down-->
+</div>
+<!--end third_f_r-->
+<br style="clear:both;" />
+</div>
+<!--end third_floor-->
+
+
+<!--帮你淘-->
+<div class="fourth_floor">
+<div class="f_title">
+<div class="tit">
+<span class="fa-stack">
+<i class="fa fa-circle-thin fa-stack-2x"></i>
+  <i class="fa fa-shopping-cart fa-stack-1x"></i>
+</span>
+<span style="font-size:16px;">帮你淘</span></div>
+</div>
+<!--end f_title-->
+
+<div class="pop_items">
+<ul>
+{% for post in posts %}
+
+<li>
+{% if post.tag %}
+<span style="color:#9b2055;font-size:16px;">[{{ post.tag }}]</span>
+{% endif %}
+<a href="{{ post.url }}">
+<span >{{ post.title }}</span>
+</a>
+<span style="width:auto;float:right;color:#333;">
+{{ post.last_updated_at|date:"D d M Y" }} {% if not post.is_past_due and not post.is_only_date %} {{ post.last_updated_at|time:"H:i" }} {% endif %}
+</span>
+</li>
+{% endfor %}
+</ul>
+</div>
+<!--end pop_items-->  
+<!--上下页-->
+<div class="item_con_pager">
+<div class="pager_container">
+<a {% if posts.has_previous %} href="{% append_to_get page=posts.previous_page_number %}" {% endif %}>
+<span hidefocus="hidefocus" action="prev" class="pager_prev {% if not posts.has_previous %} pager_prev_disabled {% endif %}">
+<strong class="pager_lgthen {% if not posts.has_previous %} pager_lgthen_dis {% endif %}"></strong>上一页</span>
+</a>
+{% for num in posts.page_range %}
+{% if not num %} ...  {# literally output dots #}
+{% else %}
+<a href="{% append_to_get page=num %}">
+<span hidefocus="hidefocus" page="{{ num }}" {% ifequal num posts.number %} class="pager_is_current" {% else %} class="pager_not_current" {% endifequal %}>
+    {{ num }}
+</span>
+</a>
+{% endif %}
+{% endfor %}
+<a {% if posts.has_next %} href="{% append_to_get page=posts.next_page_number %}" {% endif %}>
+  <span hidefocus="hidefocus" action="next" class="pager_next {% if not posts.has_next %} pager_lgthen_dis {% endif %}">
+  下一页<strong class="pager_lgthen "></strong>
+  </span>
+</a>
+
+</div>
+</div>
+<!--end item_con_pager-->
+<br style="clear:both;" />
+</div>
+<!--end fourth_floor-->
+</div>
+<!--end cont-->
+<div id="footer">
+<div class="links"></div>
+<div class="copyright"></div>
+</div>
+<!--end #footer-->
+</body>
+</html>

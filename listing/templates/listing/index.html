@@ -19,14 +19,6 @@ var _rollbarConfig = {
 // End Rollbar Snippet
 </script>
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-8010059870144357",
-    enable_page_level_ads: true
-  });
-</script>
-
 <!-- meta -->
 <meta charset="utf-8">
 <meta content="二手交易,出售,求购,二手论坛" name="keywords">
@@ -36,6 +28,7 @@ var _rollbarConfig = {
 <title>易奇网-最活力的二手交易论坛</title>
 <!-- 公共样式 -->
 <link href="{% static "css/base.css" %}" rel="stylesheet" type="text/css">
+<link href="{% static "css/subheader.css" %}" rel="stylesheet" type="text/css">
 <!-- 图标文字样式 -->
 <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
 <!-- 样式 -->
@@ -43,8 +36,21 @@ var _rollbarConfig = {
     {% if prod %}
     <script type="text/javascript" src="{% static "js/googleanalytics.js" %}">
     </script>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8010059870144357",
+        enable_page_level_ads: true
+      });
+    </script>
+
     {% endif %}
+    <script type="text/javascript" src="{% static "js/jquery-3.0.0.min.js" %}">
+    </script>
     <script type="text/javascript" src="{% static "js/jquery-ui.min.js" %}">
+    </script>
+    <script type="text/javascript" src="{% static "js/base.js" %}">
     </script>
     <script type="text/javascript" src="{% static "js/listing.js" %}">
     </script>
@@ -78,12 +84,12 @@ var _rollbarConfig = {
 </div>
 <!--end #nav-->
 <!--花色导航-->
-<div id="mainNav">
+<div id="mainNav" class="expandedNav">
 
 <div class="inn">
 <div class="mainNav_l">
-<div class="logo"></div>
-<div class="slogan">THE PERFECT PLACE<br/>TO EXCHANGE<br/> UNWANTED TREASURES</div>
+<a href="{% url 'listing' %}"><div id="logo" class="logo"></div></a>
+<div id="slogan" class="slogan">THE PERFECT PLACE<br/>TO EXCHANGE<br/> UNWANTED TREASURES</div>
 </div>
 <!--end mainNav_l-->
 <ul class="mainNav_wrap">
@@ -120,50 +126,8 @@ var _rollbarConfig = {
 </div>
 <!--end #header-->
 
-<!-- subheader
-<div id="subheader" class="subheader">
-<div id="suspendedNav">
-<div class="inn">
-<div class="suspendedNav_l">
-<div class="logo_s"></div>
-</div>
-
-<ul class="suspendedNav_wrap">
-				<li>
-					<a href="" >帮你淘</a>
-				</li>
-				<li>
-					<a href="" >出售</a>
-				</li>
-				<li>
-					<a href="" >求购</a>
-				</li>
-							</ul>
-<div class="suspendedNav_r">
- <div class="search_form">
-    	<div id="search_box" class="search_box">
-        	 <form id="miniSearchForm" class="searchForm" name="searchForm" action="{% url 'listing' %}" method="get">
-      <input type="text" id="search_input" name="kw" class="search_input" tabindex="1" maxlength="64" autocomplete="off" value="" placeholder="搜索" style="color: rgb(153, 153, 153);">
-
-        <div id="mini_search_button" class="search_button" > <i class="fa fa-search"> </i> </div>
-    </form>
-        </div>
-      &nbsp;&nbsp;<span>搜一搜</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <span>
-<a href="" class="sign_in">登录</a>
-/
-<a href="" class="regist">注册</a>
-</span>
-    </div>  
-</div>
-</div>
-</div>
-</div>
-end #subheader-->
-
-
 <!--页面主体 -->
-<div class="cont">
+<div class="cont main_container">
 
 <!--菜单层-->
 <div class="first_floor">
@@ -324,58 +288,17 @@ end #subheader-->
 </div>
 <!--end third_f_l-->
 <div class="third_f_r">
-<div class="third_f_r_up">
-<div class="f_title">
-<div class="tit">
-<span class="fa-stack">
-<i class="fa fa-circle-thin fa-stack-2x"></i>
-  <i class="fa fa-envelope fa-stack-1x"></i>
-</span>
-<span style="font-size:16px;">Newletter</span></div>
-</div>
-<!--end f_title-->
-<div class="note">Subscribe to our email newsletter. </div>
 
-<div id="subsearch_box" class="subsearch_box">
-        	 <form id="subsearchForm" class="subsearchForm" name="subsearchForm" action="" method="get">
-      <input type="text" id="subsearch_input" class="subsearch_input" tabindex="1" maxlength="64" autocomplete="off" value="" placeholder="Enter your email" style="color: rgb(85,85,85);">
-
-        <input type="submit" id="subsearch_button" class="subsearch_button" value="Subscribe" >
-    </form>
-        </div>
-
-
-</div>
-<!--end third_f_r_up-->
-<div class="third_f_r_down">
-<div class="f_title">
-<div class="tit">
-<span class="fa-stack">
-<i class="fa fa-circle-thin fa-stack-2x"></i>
-  <i class="fa fa-share-alt fa-stack-1x"></i>
-</span>
-<span style="font-size:16px;">Follow us</span></div>
-</div>
-<!--end f_title-->
-<ul class="val_icon">
-<li>
-<span><a href=""><img src="{% static "images/Facebook.png" %}" width="36" height="36"/></a></span><span><a href=""><img src="{% static "images/Twitter.png" %}" width="36" height="36"/></a></span><span><a href=""><img src="{% static "images/Google _.png" %}" width="36" height="36"/></a></span>
-</li>
-<li>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- extreasures home -->
+<!-- Medium rectangle -->
 <ins class="adsbygoogle"
-     style="display:block"
+     style="display:inline-block;width:300px;height:250px"
      data-ad-client="ca-pub-8010059870144357"
-     data-ad-slot="9038511422"
-     data-ad-format="auto"></ins>
+     data-ad-slot="8787832626"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-</li>
-</ul>
-</div>
-<!--end third_f_r_down-->
+
 </div>
 <!--end third_f_r-->
 <br style="clear:both;" />
@@ -446,8 +369,50 @@ end #subheader-->
 </div>
 <!--end cont-->
 <div id="footer">
-<div class="links"></div>
-<div class="copyright"></div>
+<div class="links">
+
+<div class="cont">
+<table width="100%">
+<tbody>
+<tr>
+
+<td>
+<div class="f_title">
+<div class="tit">
+<span class="fa-stack">
+<i class="fa fa-circle-thin fa-stack-2x"></i>
+  <i class="fa fa-envelope fa-stack-1x"></i>
+</span>
+<span style="font-size:16px;">Newletter</span></div>
+</div>
+<!--end f_title-->
+
+<div id="subsearch_box" class="subsearch_box">
+        	 <form id="subsearchForm" class="subsearchForm" name="subsearchForm" action="" method="get">
+      <input type="text" id="subsearch_input" class="subsearch_input" tabindex="1" maxlength="64" autocomplete="off" value="" placeholder="Enter your email" style="color: rgb(85,85,85);">
+
+        <input type="submit" id="subsearch_button" class="subsearch_button" value="Subscribe" >
+    </form>
+        </div>
+
+
+</td>
+
+<td style="text-align: right;">
+<div class="val_icon">
+<span><a href=""><img src="{% static "images/Facebook.png" %}" width="36" height="36"/></a></span><span><a href=""><img src="{% static "images/Twitter.png" %}" width="36" height="36"/></a></span><span><a href=""><img src="{% static "images/Google _.png" %}" width="36" height="36"/></a></span>
+</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+<!--end cont-->
+
+</div>
+<div class="copyright">
+Copyright @ 2016 extreasures.com. All rights reserved
+</div>
 </div>
 <!--end #footer-->
 </body>

@@ -1,0 +1,75 @@
+.suspendedNav{
+        height:52px;
+        width:100%;
+        color: #9b2055;
+    line-height: 35px;
+    font-size: 18px;
+    background-color: #f6d7d7;
+    background-image: -moz-linear-gradient(left, #f6d7d7, #aebddc);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f6d7d7), to(#aebddc));
+    background-image: -webkit-linear-gradient(left, #f6d7d7, #aebddc);
+    background-image: -o-linear-gradient(left, #f6d7d7, #aebddc);
+    background-image: linear-gradient(to right, #f6d7d7, #aebddc);
+    background-repeat: repeat-x;
+    border-bottom: 5px solid #9b2055;
+        min-width:960px; /* sets max-width for IE */
+    _width:expression(document.body.clientWidth < 960 ? "960px" : "auto");
+
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.suspendedNav .inn {
+    width: 960px;
+    margin: 0 auto;
+	clear:both;
+}
+.suspendedNav .nav_l {
+    float: left;
+}
+
+.suspendedNav .logo {
+	width: 51px;
+	height:52px;
+	float: left;
+	margin-right: 15px;
+	background-image: url(../images/logo_s.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+}	
+
+.suspendedNav .mainNav_wrap {
+    float: left;
+	padding-top:12px;
+	padding-left:70px;
+}
+.suspendedNav .mainNav_wrap li {
+    display: inline-block;
+    margin: 0 16px;
+    position: relative;
+	
+}
+.suspendedNav .mainNav_wrap li a {
+    display: block;
+    font-size: 18px;
+    color: #9b2055;
+    padding: 0 5px;
+}
+.suspendedNav .mainNav_wrap li a.current {
+    color: #492c8d;
+}	
+.suspendedNav .mainNav_r {
+    float: right;
+    width:auto;
+    overflow: hidden;
+	padding-top:6px;
+}
+.suspendedNav .search_form{ 
+color:#492c8d;
+padding-top:6px;}
+
+
+/*小header结束*/

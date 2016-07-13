@@ -48,6 +48,12 @@ a {text-decoration: none;}
 	font-style: normal;
 }
 
+#header {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
 #nav .nav_r {
     float: right;
     width:auto;
@@ -69,7 +75,7 @@ a {text-decoration: none;}
 /*白色导航内容结束*/
 
 /*花色导航内容*/
-#mainNav{
+.expandedNav{
 	height:150px;
 	width:auto;
 	color: #9b2055;
@@ -87,12 +93,12 @@ a {text-decoration: none;}
     _width:expression(document.body.clientWidth < 960 ? "960px" : "auto");
 }
 	
-#mainNav .inn {
+.expandedNav .inn {
     width: 960px;
     margin: 0 auto;
 	clear:both;
 }
-#mainNav .mainNav_l {
+.expandedNav .mainNav_l {
     float: left;
 }
 
@@ -118,23 +124,23 @@ a {text-decoration: none;}
     float: left;
 	padding-top:82px;
 }
-#mainNav .mainNav_wrap li {
+.expandedNav .mainNav_wrap li {
     display: inline-block;
     margin: 0 16px;
     position: relative;
 	
 }
-#mainNav .mainNav_wrap li a {
+.expandedNav .mainNav_wrap li a {
     display: block;
     font-size: 18px;
     color: #9b2055;
     line-height: 51px;
     padding: 0 5px;
 }
-#mainNav .mainNav_wrap li a.current {
+.expandedNav .mainNav_wrap li a.current {
     color: #492c8d;
 }	
-#mainNav .mainNav_r {
+.expandedNav .mainNav_r {
     float: right;
     width:auto;
     overflow: hidden;

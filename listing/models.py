@@ -10,7 +10,8 @@ TAG_CHOICES = (
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length = 200)
-    url = models.CharField(max_length = 1000, unique=True)
+    url = models.CharField(max_length = 500)
+    url_index = models.UUIDField(unique=True, editable=False)
     tag = models.CharField(max_length = 50, null=True)
     last_updated_at = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)

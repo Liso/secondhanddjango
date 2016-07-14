@@ -1,6 +1,7 @@
 import base64
 import requests
 import pytz
+import uuid
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, render_to_response
@@ -104,18 +105,20 @@ def fetchMoonbbs(request):
 def fetcher(crawlerUrl):
     res = getScrapyRes(crawlerUrl)
     for entry in res:
-        updated_values = {'tag': entry.get('tag'), 'title': entry.get('title'), 'last_updated_at': parseTime(entry.get('timestamp'))}
-        p, created = Post.objects.update_or_create(url=entry.get('link'), defaults=updated_values)
+        link = str(entry.get('link'))
+        link_hash = uuid.uuid3(uuid.NAMESPACE_DNS, link)
+        updated_values = {'url': link, 'tag': entry.get('tag'), 'title': entry.get('title'), 'last_updated_at': parseTime(entry.get('timestamp'))}
+        p, created = Post.objects.update_or_create(url_index=link_hash, defaults=updated_values)
     return HttpResponse('success')
 
 # time_string is expected as 2016-05-17
 def parseTime(time_string):
+    tz = pytz.timezone('America/Los_Angeles')
     try:
-        return datetime.strptime(time_string, "%Y-%m-%d")
+        return tz.localize(datetime.strptime(time_string, "%Y-%m-%d"))
     except ValueError:
         format = '%Y-%m-%d %I:%M %p'
         try:
-          return datetime.strptime(time_string, format)
+          return tz.localize(datetime.strptime(time_string, format))
         except ValueError:
-          tz = pytz.timezone('America/Los_Angeles')
           return datetime.now(tz)

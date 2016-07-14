@@ -8,3 +8,4 @@ requests==2.10.0
 whitenoise==3.1
 rollbar==0.13.0
 pytz==2016.4
+MySQL-python==1.2.3

@@ -275,3 +275,10 @@ height:30px;
 .copyright {
 	height:30px;
 	background-color:#9394b9;}
+
+#right_ad_bar {
+    display: block;
+    position: fixed;
+    top: 208px;
+    right: 0px;
+}

@@ -3,6 +3,7 @@ import requests
 import pytz
 import uuid
 
+from django.contrib.auth.decorators import user_passes_test
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
@@ -91,12 +92,14 @@ def getScrapyRes(url):
     return requests.get(url, headers=headers).json()
  
 # fetch chineseinsfbay
+@user_passes_test(lambda u: u.is_superuser)
 def fetchChineseInSFBay(request):
     job = request.GET.get("job")
     crawlerUrl = 'https://storage.scrapinghub.com/items/65427/1/' + job + '?format=json'
     return fetcher(crawlerUrl)
  
 # fetch chineseinsfbay
+@user_passes_test(lambda u: u.is_superuser)
 def fetchMoonbbs(request):
     job = request.GET.get("job")
     crawlerUrl = 'https://storage.scrapinghub.com/items/65427/2/' + job + '?format=json'

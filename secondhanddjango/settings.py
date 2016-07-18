@@ -24,6 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'w=&rmm%b#1=pd0753it0mnwli0@z46^qx9#x2=-6fis7v&ma&s'
 
+SCRAPINGHUB_KEY = os.environ.get('SCRAPINGHUB_KEY')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = not os.environ.get('PROD')
 

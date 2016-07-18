@@ -3,10 +3,11 @@ import requests
 import pytz
 import uuid
 
-from django.contrib.auth.decorators import user_passes_test
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
+from django.conf import settings
+from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User, Group
 from django.http import HttpResponse
 from django.views.generic import View
@@ -15,6 +16,7 @@ from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import authentication, permissions
+from scrapinghub import Connection
 from listing.serializers import UserSerializer, GroupSerializer, PostSerializer
 from listing.models import Post
 from digg_paginator import DiggPaginator
@@ -85,7 +87,7 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
 
 def getScrapyRes(url):
-    private_key = "8a94547f3ac24f18ab3dfac27602edb4"
+    private_key = settings.SCRAPINGHUB_KEY
     b64 = base64.encodestring('%s:' % private_key).replace('\n', '')
     auth = "Basic %s" % b64
     headers = {'Content-type': 'application/json', 'Authorization': auth}
@@ -105,12 +107,25 @@ def fetchMoonbbs(request):
     crawlerUrl = 'https://storage.scrapinghub.com/items/65427/2/' + job + '?format=json'
     return fetcher(crawlerUrl)
 
+@user_passes_test(lambda u: u.is_superuser)
+def fetchHourly(request):
+    conn = Connection(settings.SCRAPINGHUB_KEY)
+    project = conn[65427]
+    jobs = project.jobs(state='finished', has_tags='hourly', count=2)
+    Post.objects.all().delete()
+    for job in jobs:
+        saveItems(job.items())
+    return HttpResponse('success')
+ 
 def fetcher(crawlerUrl):
     res = getScrapyRes(crawlerUrl)
+    return saveItems(res)
+
+def saveItems(res):
     for entry in res:
-        link = str(entry.get('link'))
+        link = str(entry['link'])
         link_hash = uuid.uuid3(uuid.NAMESPACE_DNS, link)
-        updated_values = {'url': link, 'tag': entry.get('tag'), 'title': entry.get('title'), 'last_updated_at': parseTime(entry.get('timestamp'))}
+        updated_values = {'url': link, 'tag': entry['tag'], 'title': entry['title'], 'last_updated_at': parseTime(entry['timestamp'])}
         p, created = Post.objects.update_or_create(url_index=link_hash, defaults=updated_values)
     return HttpResponse('success')
 

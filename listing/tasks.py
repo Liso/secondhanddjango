@@ -12,7 +12,7 @@ from datetime import datetime
 logger = get_task_logger(__name__)
  
 # A periodic task that will run every minute (the symbol "*" means every)
-@periodic_task(run_every=(crontab(hour="*", minute="*", day_of_week="*")))
+@periodic_task(run_every=(crontab(hour="*", day_of_week="*")))
 def fetch_hourly():
     logger.info("Start task")
     conn = Connection(settings.SCRAPINGHUB_KEY)

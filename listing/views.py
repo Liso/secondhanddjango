@@ -112,7 +112,6 @@ def fetchHourly(request):
     conn = Connection(settings.SCRAPINGHUB_KEY)
     project = conn[65427]
     jobs = project.jobs(state='finished', has_tags='hourly', count=2)
-    Post.objects.all().delete()
     for job in jobs:
         saveItems(job.items())
     return HttpResponse('success')

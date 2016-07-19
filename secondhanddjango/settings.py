@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'listing',
     'rest_framework',
+    'djcelery',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,6 +90,20 @@ REST_FRAMEWORK = {
 
 WSGI_APPLICATION = 'secondhanddjango.wsgi.application'
 
+if DEBUG:
+    BROKER_URL = "amqp://admin:1234@localhost:5672/myvhost"
+else:
+    BROKER_URL = "amqp://zewdiccp:eC8HRQz7Zx4RBa_wGJ3my6HqOEQobJ53@wildboar.rmq.cloudamqp.com/zewdiccp"
+
+BROKER_POOL_LIMIT = 3
+
+CELERY_ACCEPT_CONTENT = ['json']
+
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -143,6 +158,8 @@ else:
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'America/Los_Angeles'
+
+CELERY_TIMEZONE = TIME_ZONE
 
 USE_I18N = True
 

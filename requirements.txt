@@ -10,3 +10,9 @@ rollbar==0.13.0
 pytz==2016.4
 MySQL-python==1.2.3
 scrapinghub==1.7.0
+celery==3.1.23
+django-celery==3.1.17
+billiard==3.3.0.23
+kombu==3.0.35
+anyjson==0.3.3
+amqp==1.4.9

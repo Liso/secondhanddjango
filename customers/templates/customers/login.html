@@ -1,0 +1,53 @@
+{% extends "listing/base.html" %}
+{% load staticfiles %}
+
+{% block style %}
+<link href="{% static "css/register.css" %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<!-- 登录&注册 -->
+<div class="sign">
+
+<div class="sign_box">
+<div class="left_part">
+<ul>
+<a href="{% url 'register' %}"><li class="left_part_li">注册</li></a>
+<li class="left_part_li active">登录</li>
+</ul>
+<br style="clear:both;">
+<!-- 登录 -->
+<div class="part_body">
+<div class="input_item">
+<input type="text" class="input input_b" name="" placeholder="请输入登录邮箱" data-required="required" autocomplete="off"></div>
+
+<div class="input_item">
+<input type="password" class="input input_b" name="" placeholder="请输入密码" data-required="required" autocomplete="off">
+</div>
+
+<div class="text_item">
+<label style="float:right;"><a href="" target="_blank" style="color:#4f3098;">忘记密码？</a></label>
+</div>
+<div class="btn"><input type="submit" id="sign_button" class="sign_button" value="登&nbsp录" > </div>
+</div>
+
+
+</div>
+<!--end left_part-->
+<div class="right_part">
+<div class="right_part_text">使用以下帐号直接登录:</div>
+<ul class="right_part_ul">
+<a href=""><li class="right_part_li li_facebook">Sign in with Facebook</li></a>
+<a href=""><li class="right_part_li li_google">Sign in with google</li></a>
+<a href=""><li class="right_part_li li_qq">QQ登录</li></a>
+<a href=""><li class="right_part_li li_weixin">微信登录</li></a>
+</ul>
+</div>
+<!--end right_part-->
+<br style="clear:both;">
+</div>
+<!--end login_box-->
+<br style="clear:both;">
+</div>
+<!--end sign-->
+{% endblock %}

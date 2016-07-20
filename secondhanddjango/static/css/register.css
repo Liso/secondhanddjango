@@ -1,0 +1,145 @@
+@charset "utf-8";
+*{margin:0;padding:0;}
+
+body {overflow: hidden; }
+
+/*注册&登录*/
+.sign{
+    padding-top: 100px;
+    padding-bottom: 20px;
+	width:960px;
+	margin:0 auto;}
+
+.sign_box {width: 750px;
+        height:auto;
+		margin: 0 auto;
+		 padding:25px;
+		 position:relative;
+		 top:85px;
+	     z-index:120;
+		 font-family: "造字工房悦黑（非商用）常规体";
+		/*background:rgba(255, 255, 255, 0.7) none repeat scroll 0 0 !important;
+		background-color:#fff;
+		filter:alpha(opacity:30); 
+		-moz-opacity:0.7; 
+		opacity:0.7;
+        border-radius:5px;
+	   -moz-border-radius:5px;
+	   -webkit-border-radius:5px;
+	  */
+		
+		}
+
+/*左边*/
+.left_part {width:360px;
+            float:left;
+			padding-right:80px;
+			border-right:1px dashed #ddd;}
+			
+.left_part_li{width:180px;
+              float:left;
+			  display:block;
+			  border-bottom:3px solid #e6e6e6;
+	          text-align: center;
+	          line-height: 48px;
+	          font-size: 20px;
+			  color:#333;}		
+.left_part_li.active {border-bottom:3px solid #bd1261;
+                      color:#bd1261;}	
+/*主体*/	
+.part_body {
+           padding:15px 8px;
+		   margin-top:20px;}
+		   
+.input_item{width:100%;
+             height:42px;
+			 margin-bottom:20px;
+			 position:relative;
+			 z-index:1;
+			 }
+.text_item{
+           text-align:left;
+		   padding-left:6px;
+		   margin:15px 0;
+		   color:#666;}
+
+.input{width:314px;
+       height:42px;
+	   font-size:14px;
+	   line-height:42px\9;
+       padding-right:13px;padding-left:13px;
+	   vertical-align:middle;
+	   color:#333;
+	   border:1px solid #ddd;
+       outline:0}
+.input:-ms-input-placeholder{color:#b5b5b5}
+
+.input:focus{border-color:#e61874;}
+
+
+	
+.sign_button {height: 45px;
+    width: 342px;
+	line-height: 40px;
+	font-size:18px;
+	color:#fff;
+	text-align:center;
+	margin-top:25px;
+	border:1px solid #d41f73;
+    cursor: pointer;
+	-webkit-appearance:none;
+	background-color: #bd1261;
+	font-family: "造字工房悦黑（非商用）常规体";
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;}
+.sign_button:hover {text-decoration:none;background-color:#d5126b;}
+/*右边*/		
+.right_part {width:auto;
+            float:left;
+			padding-left:80px;
+}
+.right_part_text {
+	text-align:left;
+	line-height:40px;
+	padding-top:20px;
+	padding-bottom:10px;
+	color:#777;
+	font-size:16px;}
+.right_part_li { display:block;
+	             width:178px;
+				 height:42px;
+				 line-height:42px;
+                 border-radius:3px;
+	            -moz-border-radius:3px;
+	            -webkit-border-radius:3px;
+			     margin-bottom:15px;
+				 color:#fff;
+				 text-align:left;
+				}
+.right_part_li.li_facebook{
+	background-color: #3d599d;
+	padding-left:50px;
+	background-image: url(../images/f.png);
+	background-repeat: no-repeat;
+	background-position: 13px center;
+}
+.right_part_li.li_google{
+	background-color:#ff3425;
+    padding-left:50px;
+	background-image: url(../images/g.png);
+	background-repeat: no-repeat;
+	background-position: 17px center;
+                         }
+.right_part_li.li_qq{
+	background-color:#0196ff;
+	padding-left:50px;
+	background-image: url(../images/q.png);
+	background-repeat: no-repeat;
+	background-position: 16px center;}
+.right_part_li.li_weixin{
+	background-color:#04b10f;
+	padding-left:50px;
+	background-image: url(../images/w.png);
+	background-repeat: no-repeat;
+	background-position: 13px center;}

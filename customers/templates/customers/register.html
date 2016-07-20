@@ -1,0 +1,57 @@
+{% extends "listing/base.html" %}
+{% load staticfiles %}
+
+{% block style %}
+<link href="{% static "css/register.css" %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<!-- 登录&注册 -->
+<div class="sign">
+
+<div class="sign_box">
+<div class="left_part">
+<ul>
+<li class="left_part_li active">注册</li>
+<a href="{% url 'login' %}"><li class="left_part_li">登录</li></a>
+</ul>
+<br style="clear:both;">
+<!-- 注册 -->
+<div class="part_body" style="display:block;">
+<div class="input_item">
+<input type="text" class="input input_b" name="" placeholder="请输入昵称" data-required="required" autocomplete="off"></div>
+<div class="input_item">
+<input type="text" class="input input_b" name="" placeholder="请输入常用邮箱地址" data-required="required" autocomplete="off"></div>
+<div class="input_item">
+<input type="password" class="input input_b" name="" placeholder="设置密码" data-required="required" autocomplete="off">
+</div>
+<div class="input_item">
+<input type="password" class="input input_b" name="" placeholder="确认密码" data-required="required" autocomplete="off">
+</div>
+<div class="text_item">
+<label for="checkbox2" class="box_checkbox">
+<span class="checkbox_icon" style="background-position: -13px 3px;"></span><input type="checkbox" value="" id="checkbox2" class="checkbox" data-myvalue="agred" data-text="我已阅读并同意" >我已阅读并同意
+<a href="deal.html" target="_blank" style="color:#4f3098;">《易奇用户协议》</a></label>
+</div>
+<div class=""><input type="submit" id="sign_button" class="sign_button" value="注&nbsp;册" > </div>
+</div>
+
+</div>
+<!--end left_part-->
+<div class="right_part">
+<div class="right_part_text">使用以下帐号直接登录:</div>
+<ul class="right_part_ul">
+<a href=""><li class="right_part_li li_facebook">Sign in with Facebook</li></a>
+<a href=""><li class="right_part_li li_google">Sign in with google</li></a>
+<a href=""><li class="right_part_li li_qq">QQ登录</li></a>
+<a href=""><li class="right_part_li li_weixin">微信登录</li></a>
+</ul>
+</div>
+<!--end right_part-->
+<br style="clear:both;">
+</div>
+<!--end login_box-->
+<br style="clear:both;">
+</div>
+<!--end sign-->
+{% endblock %}

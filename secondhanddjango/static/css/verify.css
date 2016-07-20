@@ -1,0 +1,73 @@
+@charset "utf-8";
+*{margin:0;padding:0;}
+
+.cont_verify {width: 620px;
+              margin: 0 auto;}
+	
+.verify_box {width: 620px;
+             height:285px;
+			 padding:12px;
+             margin-top:120px;
+             border:1px solid #ddd;
+			 background-color: #fff;
+			filter:progid:DXImageTransform.Microsoft.Shadow(color=#999,strength=4);/*ie*/
+ -moz-box-shadow: 3px 3px 10px #999;/*firefox*/
+ -webkit-box-shadow: 3px 3px 10px #999;/*safari或chrome*/
+ box-shadow:3px 3px 10px #999;/*opera或ie9*/
+			}			  
+.cont_verify.tip{width: 580px;
+                 color:#942052;
+                 font-size:22px;
+				 line-height:45px;
+                 font-family: "造字工房悦黑（非商用）常规体";
+				 padding-left:10px;
+				 border-bottom:1px solid #ddd;
+				 margin-bottom:20px;}
+
+.cont_verify.text{
+	width: 425px;
+	height: 49px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left: 60px;
+	margin: 0 auto;
+	word-wrap: break-word;
+	color: #333;
+	font-size: 18px;
+	font-family: "造字工房悦黑（非商用）常规体";
+	text-align: left;
+	line-height: 24px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-image: url(../images/icon_sigh.png);
+}
+
+
+.cont_verify.btn{
+	width: 425px;
+	height: 40px;
+	margin: 0 auto;
+	padding-left: 60px;
+	color: #9b2055;
+	font-family: "造字工房悦黑（非商用）常规体";
+}
+
+.cont_verify.btn span{
+	font-size:14px;
+	}
+
+.verify_button {
+	height: 40px;
+    width: 270px;
+	line-height: 40px;
+	font-size:16px;
+	color:#fff;
+	text-align:center;
+	border:1px solid #9b2055;
+    cursor: pointer;
+	-webkit-appearance:none;
+	background-color: #9b2055;
+	font-family: "造字工房悦黑（非商用）常规体";
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;}

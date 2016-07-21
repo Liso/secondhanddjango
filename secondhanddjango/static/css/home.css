@@ -120,11 +120,11 @@ height:30px;
 
 /*分类等级*/
 .third_floor {margin-bottom:10px;}
-.third_f_l {width:675px;
+.third_f_l {width:630px;
            float:left;}
 .third_f_l_cont {border:2px solid #afaeaf;
                 padding:20px 10px 5px 20px;
-	            width:645px;}
+	            width:600px;}
 .third_f_l_wrap {display:block;
                  margin-bottom:15px;}	
 .third_f_l_wrap dt{color:#9b2055!important;
@@ -149,7 +149,7 @@ height:30px;
 }	
 /*分类等级结束*/
 /*NEWLETTER & follow us*/
-.third_f_r {width:270px;
+.third_f_r {width:310px;
            float:left;
 		   margin-left:15px;}
 .note {clear:both;

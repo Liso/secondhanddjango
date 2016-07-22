@@ -37,10 +37,10 @@
 <div class="right_part">
 <div class="right_part_text">使用以下帐号直接登录:</div>
 <ul class="right_part_ul">
-<a href=""><li class="right_part_li li_facebook">Sign in with Facebook</li></a>
-<a href=""><li class="right_part_li li_google">Sign in with google</li></a>
-<a href=""><li class="right_part_li li_qq">QQ登录</li></a>
-<a href=""><li class="right_part_li li_weixin">微信登录</li></a>
+<a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"><li class="right_part_li li_facebook">Sign in with Facebook</li></a>
+<a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"><li class="right_part_li li_google">Sign in with google</li></a>
+<a href="{% url 'social:begin' 'weibo' %}?next={{ request.path }}"><li class="right_part_li li_qq">微博登录</li></a>
+<a href="{% url 'social:begin' 'weixin' %}?next={{ request.path }}"><li class="right_part_li li_weixin">微信登录</li></a>
 </ul>
 </div>
 <!--end right_part-->

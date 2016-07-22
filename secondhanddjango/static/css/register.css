@@ -1,11 +1,12 @@
 @charset "utf-8";
 *{margin:0;padding:0;}
 
-body {overflow: hidden; }
+#header {
+    position: initial;
+}
 
 /*注册&登录*/
 .sign{
-    padding-top: 100px;
     padding-bottom: 20px;
 	width:960px;
 	margin:0 auto;}
@@ -14,7 +15,6 @@ body {overflow: hidden; }
         height:auto;
 		margin: 0 auto;
 		 padding:25px;
-		 position:relative;
 		 top:85px;
 	     z-index:120;
 		 font-family: "造字工房悦黑（非商用）常规体";

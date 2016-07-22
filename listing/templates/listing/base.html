@@ -73,9 +73,18 @@ var _rollbarConfig = {
 
 <div class="nav_r">
 <span>
+   {% if user and not user.is_anonymous %}
+     <li>
+       <a>Hello {{ user.get_full_name|default:user.username }}!</a>
+     </li>
+     <li>
+       <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+     </li>
+   {% else %}
 <a href="{% url 'login' %}" class="sign_in">登录</a>
 /
 <a href="{% url 'register' %}" class="regist">注册</a>
+   {% endif %}
 </span>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span>
@@ -98,7 +107,7 @@ var _rollbarConfig = {
 <!--end mainNav_l-->
 <ul class="mainNav_wrap">
 				<li>
-					<a href="" class="current">首页</a>
+					<a href="{% url 'listing' %}" class="current">首页</a>
 				</li>
 				<li>
 					<a href="" >出售</a>

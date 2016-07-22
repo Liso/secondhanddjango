@@ -29,4 +29,6 @@ urlpatterns = [
     url(r'^', include('listing.urls')),
     url(r'^customers/', include('customers.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url('', include('social.apps.django_app.urls', namespace='social')),
+    url('', include('django.contrib.auth.urls', namespace='auth')),
 ]

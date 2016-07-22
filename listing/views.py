@@ -43,7 +43,7 @@ def index(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         posts = paginator.page(paginator.num_pages)
-    return render_to_response('listing/index.html', {"posts": posts}, context_instance=RequestContext(request))
+    return render_to_response('listing/index.html', {"posts": posts}, context_instance=get_common_context(request))
 
 def home(request):
     keyword = request.GET.get('kw')
@@ -139,3 +139,6 @@ def parseTime(time_string):
           return tz.localize(datetime.strptime(time_string, format))
         except ValueError:
           return datetime.now(tz)
+
+def get_common_context(request):
+    return RequestContext(request, {'request': request, 'user': request.user})

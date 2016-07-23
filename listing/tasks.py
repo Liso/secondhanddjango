@@ -1,6 +1,7 @@
 import uuid
 import pytz
 
+from urlparse import urlparse
 from celery.task.schedules import crontab
 from celery.decorators import periodic_task
 from celery.utils.log import get_task_logger
@@ -24,7 +25,11 @@ def fetch_hourly():
 def saveItems(res):
     for entry in res:
         link = str(entry['link'])
-        link_hash = uuid.uuid3(uuid.NAMESPACE_DNS, link)
+        o = urlparse(link)
+        if o.netloc == 'www.moonbbs.com':
+            link_hash = uuid.uuid3(uuid.NAMESPACE_DNS, o.netloc + '-'.join(o.path.split('-')[:-1]))
+        else:
+            link_hash = uuid.uuid3(uuid.NAMESPACE_DNS, link)
         updated_values = {'url': link, 'tag': entry['tag'], 'title': entry['title'], 'last_updated_at': parseTime(entry['timestamp'])}
         p, created = Post.objects.update_or_create(url_index=link_hash, defaults=updated_values)
 

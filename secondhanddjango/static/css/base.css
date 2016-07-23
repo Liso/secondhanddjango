@@ -17,7 +17,7 @@ a {text-decoration: none;}
 /*白色导航*/
 #nav {
     min-width:960px;
-    height: 46px;
+    height: 38px;
     border-bottom: 1px solid #c6c6c6;
     background-color: #ffffff;}
 #nav .inn {
@@ -58,12 +58,10 @@ a {text-decoration: none;}
     float: right;
     width:auto;
     overflow: hidden;
-	padding-top:18px;
+    padding-top:10px;
 }
 
-.sign_in {color:#222;
-         font-size:16px;}
-.regist {color:#222;
+.sign_in, .regist, .post {color:#333;
          font-size:16px;}
 .sign_in:hover {color:#fa886d;}
 .regist:hover {color:#fa886d;}

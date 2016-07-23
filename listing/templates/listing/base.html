@@ -67,31 +67,40 @@ var _rollbarConfig = {
 <!--白色导航-->
 <div id="nav">
 <div class="inn">
+<!--
 <div class="nav_l">
 <div class="suggestCity"><em class="icon_locat" style="padding:15px 10px;"></em><strong>旧金山</strong><em id="changeCity_btn">[切换城市]</em></div>
 </div>
+--!>
 
 <div class="nav_r">
-<span>
    {% if user and not user.is_anonymous %}
-     <li>
-       <a>Hello {{ user.get_full_name|default:user.username }}!</a>
-     </li>
-     <li>
+<span>
+       Hello, <a class="sign_in">{{ user.get_full_name|default:user.username }}</a>!
        <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
-     </li>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span>
+<i class="fa fa-pencil-square-o fa-lg" style="color:#fa886d;;"></i>
+<a href="" class="post">我要发帖</a>
+</span>
+</span>
    {% else %}
+<span>
+<i class="fa fa-user fa-lg" style="color:#fa886d;"></i>
 <a href="{% url 'login' %}" class="sign_in">登录</a>
 /
 <a href="{% url 'register' %}" class="regist">注册</a>
-   {% endif %}
 </span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   {% endif %}
+<!--
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span>
 <a href="" class="lan">EN</a>
 /
 <a href="" class="lan current">中文</a>
 </span>
+--!>
+
 </div>
 </div>
 </div>

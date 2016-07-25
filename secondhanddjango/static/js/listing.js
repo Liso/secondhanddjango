@@ -6,4 +6,6 @@ $(document).ready(function() {
     $( "#mini_search_button" ).click(function() {
           $( "#miniSearchForm" ).submit();
     });
+
+    $( "#tabs" ).tabs();
 });

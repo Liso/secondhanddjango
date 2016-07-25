@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import base64
 import requests
 import pytz
@@ -25,25 +26,37 @@ from digg_paginator import DiggPaginator
 
 def index(request):
     keyword = request.GET.get('kw')
+    wanted_tag = u'求购'
     if keyword:
         post_list = Post.objects.filter(title__contains=keyword).order_by('-last_updated_at')
+        wanted_post_list = Post.objects.filter(title__contains=keyword, tag=wanted_tag).order_by('-last_updated_at')
     else:
         post_list = Post.objects.all().order_by('-last_updated_at')
+        wanted_post_list = Post.objects.filter(tag=wanted_tag).order_by('-last_updated_at')
     paginator = DiggPaginator(post_list, 17, body=5) # Show 17 posts per page
+    wanted_paginator = DiggPaginator(wanted_post_list, 17, body=5) # Show 17 posts per page
 
     page = request.GET.get('page')
+    wpage = request.GET.get('wpage')
     try:
         if not page:
             posts = paginator.page(1)
         else:
             posts = paginator.page(page)
+
+        if not wpage:
+            wanted_posts = wanted_paginator.page(1)
+        else:
+            wanted_posts = wanted_paginator.page(wpage)
     except PageNotAnInteger:
         # If page is not an integer, deliver first page.
         posts = paginator.page(1)
+        wanted_posts = wanted_paginator.page(1)
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         posts = paginator.page(paginator.num_pages)
-    return render_to_response('listing/index.html', {"posts": posts}, context_instance=get_common_context(request))
+        wanted_posts = wanted_paginator.page(wanted_paginator.num_pages)
+    return render_to_response('listing/index.html', {"posts": posts, "wanted_posts": wanted_posts}, context_instance=get_common_context(request))
 
 def home(request):
     keyword = request.GET.get('kw')

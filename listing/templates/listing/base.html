@@ -59,6 +59,9 @@ var _rollbarConfig = {
     <script type="text/javascript" src="{% static "js/listing.js" %}">
     </script>
 
+    {% block script %}
+    {% endblock %}
+
 </head>
 
 <body>
@@ -111,7 +114,7 @@ var _rollbarConfig = {
 <div class="inn">
 <div class="mainNav_l">
 <a href="{% url 'listing' %}"><div id="logo" class="logo"></div></a>
-<div id="slogan" class="slogan">THE PERFECT PLACE<br/>TO EXCHANGE<br/> UNWANTED TREASURES</div>
+<div id="slogan" class="slogan">THE PERFECT PLACE<br/>TO EXCHANGE<br/> UNWANTED TREASURE</div>
 </div>
 <!--end mainNav_l-->
 <ul class="mainNav_wrap">
